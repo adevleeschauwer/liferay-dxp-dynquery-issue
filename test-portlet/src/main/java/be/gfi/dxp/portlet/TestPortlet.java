@@ -8,6 +8,7 @@ import javax.portlet.RenderRequest;
 import javax.portlet.RenderResponse;
 
 import com.liferay.journal.model.JournalArticle;
+import com.liferay.journal.model.impl.JournalArticleModelImpl;
 import com.liferay.journal.service.JournalArticleLocalServiceUtil;
 import com.liferay.portal.kernel.dao.orm.DynamicQuery;
 import com.liferay.portal.kernel.dao.orm.DynamicQueryFactoryUtil;
@@ -55,14 +56,12 @@ public class TestPortlet extends AbstractContentPortlet {
 	}
 
 	protected List<Object> articlesLastVersionNoJar() {
-		// Very basic query
-		// Is this the right classloader to use for legacy portlets ?
-		final DynamicQuery query = DynamicQueryFactoryUtil.forClass(JournalArticle.class, "articleParent",
-				PortalClassLoaderUtil.getClassLoader());
+
+		final DynamicQuery query = DynamicQueryFactoryUtil.forClass(JournalArticle.class, "articleParent", getClassLoader());
 
 		// subquery retrieving the max(version)
 		final DynamicQuery subquery = DynamicQueryFactoryUtil
-				.forClass(JournalArticle.class, "subQuery", PortalClassLoaderUtil.getClassLoader())
+				.forClass(JournalArticle.class, "subQuery", getClassLoader())
 				.add(PropertyFactoryUtil.forName("articleParent.articleId").eqProperty("articleId"))
 				.setProjection(ProjectionFactoryUtil.max("version"));
 
