@@ -11,6 +11,7 @@
 		<liferay.app.server.portal.dir>${my.liferay.app.server.portal.dir}</liferay.app.server.portal.dir>
 		<com.liferay.portal.kernel.version>2.6.0</com.liferay.portal.kernel.version>
 		<com.liferay.journal.api.version>2.1.1</com.liferay.journal.api.version>
+		<com.liferay.journal.service.version>3.1.0</com.liferay.journal.service.version>
 		<com.liferay.util.bridges.version>2.0.1</com.liferay.util.bridges.version>
 		<com.liferay.util.taglib.version>2.3.0</com.liferay.util.taglib.version>
 		<com.liferay.util.java.version>2.1.0</com.liferay.util.java.version>
@@ -64,6 +65,12 @@
 			<groupId>com.liferay</groupId>
 			<artifactId>com.liferay.journal.api</artifactId>
 			<version>${com.liferay.journal.api.version}</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.liferay</groupId>
+			<artifactId>com.liferay.journal.service</artifactId>
+			<version>${com.liferay.journal.service.version}</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>

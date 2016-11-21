@@ -7,11 +7,6 @@
 	<packaging>war</packaging>
 
 	<properties>
-		<liferay.auto.deploy.dir>/home/aldo/prj/dll/liferay/liferay-dxp-digital-enterprise-7.0-ga1/deploy</liferay.auto.deploy.dir>
-		<liferay.app.server.deploy.dir>/home/aldo/prj/dll/liferay/liferay-dxp-digital-enterprise-7.0-ga1/tomcat-8.0.32/webappps</liferay.app.server.deploy.dir>
-		<liferay.app.server.portal.dir>/home/aldo/prj/dll/liferay/liferay-dxp-digital-enterprise-7.0-ga1/tomcat-8.0.32/webappps/ROOT</liferay.app.server.portal.dir>
-		<liferay.app.server.lib.global.dir>/home/aldo/prj/dll/liferay/liferay-dxp-digital-enterprise-7.0-ga1/tomcat-8.0.32/lib/ext</liferay.app.server.lib.global.dir>
-
 		<liferay.version>7.0.2</liferay.version>
 		<liferay.maven.version>7.0.0.m2</liferay.maven.version>
 
@@ -71,19 +66,6 @@
 					</archive>
 				</configuration>
 			</plugin>
-			<plugin>
-				<groupId>com.liferay.maven.plugins</groupId>
-				<artifactId>liferay-maven-plugin</artifactId>
-				<version>${liferay.maven.version}</version>
-				<configuration>
-					<autoDeployDir>${liferay.auto.deploy.dir}</autoDeployDir>
-					<appServerDeployDir>${liferay.app.server.deploy.dir}</appServerDeployDir>
-					<appServerLibGlobalDir>${liferay.app.server.lib.global.dir}</appServerLibGlobalDir>
-					<appServerPortalDir>${liferay.app.server.portal.dir}</appServerPortalDir>
-					<liferayVersion>${liferay.version}</liferayVersion>
-					<pluginType>portlet</pluginType>
-				</configuration>
-			</plugin>			
 		</plugins>
 	</build>
 	<dependencies>
@@ -139,6 +121,12 @@
 			<groupId>javax.servlet.jsp</groupId>
 			<artifactId>jsp-api</artifactId>
 			<version>2.0</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
 			<scope>provided</scope>
 		</dependency>
 		<dependency>
